@@ -1,0 +1,8 @@
+
+# 中文帮助
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo -e "\033[33m命令：复制\033[0m"
+  echo -e "\033[33m用法示例：复制 文件A.txt 文件B.txt\033[0m"
+  exit 0
+fi
+exec "$(dirname "$0")/../bin-error/cp.sh" "$@"

@@ -1,0 +1,10 @@
+⚠️ 如果之前安装过旧版本，请执行：
+hash -r
+以清除 shell 的命令路径缓存
+(一行一个指令)(前提是你已经克隆仓库或者解压缩包了)
+cd termux-zh
+chmod +x installer.sh
+bash installer.sh
+source ~/.bashrc
+
+安装完成后，中文命令即可在任意目录全局使用。

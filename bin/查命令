@@ -1,0 +1,60 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+
+MAP_FILE="$HOME/termux-zh/mapping.txt"
+
+GREEN="\033[32m"
+YELLOW="\033[33m"
+RESET="\033[0m"
+
+show_help() {
+    echo -e "${GREEN}用法:${RESET} 查命令 <关键词>"
+    echo ""
+    echo "说明："
+    echo "  - 支持中文 / 英文 双向模糊搜索"
+    echo "  - 数据来源：mapping.txt"
+    echo "  - 只做展示，不执行命令"
+}
+
+# ---------- 参数处理 ----------
+if [ $# -eq 0 ]; then
+    show_help
+    exit 0
+fi
+
+if [ ! -f "$MAP_FILE" ]; then
+    echo -e "${YELLOW}未找到 mapping.txt${RESET}"
+    exit 1
+fi
+
+KEY="$*"
+ANSI_RE=$'\033\\[[0-9;]*m'
+
+found=0
+
+while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
+    [[ "$line" == \#* ]] && continue
+
+    # 去色用于匹配
+    plain=$(printf '%s\n' "$line" | sed -E "s/${ANSI_RE}//g")
+
+    # 跳过哨兵
+    [[ "$plain" == *"END_OF_HELP"* ]] && continue
+
+    if [[ "$plain" == *"$KEY"* ]]; then
+        printf '%b\n' "$line"
+        found=1
+    fi
+done < "$MAP_FILE"
+
+if [ $found -eq 0 ]; then
+    echo "未找到匹配项：$KEY"
+fi
+
+exit 0
+
+# ================================
+# 以下仅用于 mapping 抽取，请勿删除
+# ================================
+exec env echo "search mapping.txt"

@@ -1,0 +1,39 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+ROOT="$HOME/termux-zh"
+MAPPING="$ROOT/mapping.txt"
+
+GREEN="\033[32m"
+YELLOW="\033[33m"
+RESET="\033[0m"
+
+# 如果 mapping.txt 不存在，先生成
+if [ ! -f "$MAPPING" ]; then
+    echo -e "${YELLOW}mapping.txt 未找到，正在生成...${RESET}"
+    bash "$ROOT/自动生成中英对照表.sh"
+fi
+
+echo -e "${GREEN}📖 Termux 中文命令总览${RESET}"
+echo ""
+
+while IFS= read -r line; do
+    # 跳过空行和注释行
+    [[ "$line" =~ ^# ]] && continue
+    [[ -z "$line" ]] && continue
+
+    # 用 cut 按 ' -> ' 分割
+    zh=$(echo "$line" | cut -d'>' -f1 | sed 's/ *$//; s/ *$//; s/ *-> *$//')
+    en=$(echo "$line" | cut -d'>' -f2- | sed 's/^ *//')
+
+    if [ -n "$en" ]; then
+        printf "${GREEN}%-15s${YELLOW} -> ${RESET}${GREEN}%s${RESET}\n" "$zh" "$en"
+    else
+        echo "$line"
+    fi
+done < "$MAPPING"
+
+echo ""
+echo -e "${YELLOW}提示: 使用命令如 '列出 /storage/emulated/0' 直接执行中文命令${RESET}"
+
+# 最后一行占位注释，确保自动生成脚本抽取最后一行不会抓到真实命令
+# END_OF_HELP
