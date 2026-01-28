@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# 中文帮助
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo -e "\033[33m命令：当前shell\033[0m"
+  echo -e "\033[33m用法示例：示例参数\033[0m"
+  exit 0
+fi
+exec echo $SHELL "$@"

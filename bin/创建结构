@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -e
+echo "粘贴路径并ctrl+D"
+BASE_DIR="$PWD"
+
+# 读入全部 stdin
+mapfile -t LINES
+
+stack=()
+
+for line in "${LINES[@]}"; do
+    # 去掉回车
+    line="${line%$'\r'}"
+    [[ -z "$line" ]] && continue
+
+    # 计算层级（只认 tree 的标准符号）
+    depth=$(grep -oE '│   |├── |└── ' <<<"$line" | wc -l)
+
+    # 提取名字（去掉树形符号）
+    name="$line"
+    name="${name##*── }"
+
+    [[ -z "$name" ]] && continue
+
+    is_dir=0
+    [[ "$name" == */ ]] && is_dir=1
+    name="${name%/}"
+
+    stack=("${stack[@]:0:depth}")
+    stack+=("$name")
+
+    rel_path="$(IFS=/; echo "${stack[*]}")"
+    full_path="$BASE_DIR/$rel_path"
+
+    if (( is_dir )); then
+        mkdir -p "$full_path"
+        echo "[DIR ] $full_path"
+    else
+        mkdir -p "$(dirname "$full_path")"
+        : > "$full_path"
+        echo "[FILE] $full_path"
+    fi
+done
+
+echo
+echo "🎉 完成！结构已生成。"

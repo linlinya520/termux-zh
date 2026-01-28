@@ -1,0 +1,8 @@
+
+# 中文帮助
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo -e "\033[33m命令：移动\033[0m"
+  echo -e "\033[33m用法示例：移动 文件A.txt /storage/emulated/0/Download\033[0m"
+  exit 0
+fi
+exec "$(dirname "$0")/../bin-error/mv.sh" "$@"

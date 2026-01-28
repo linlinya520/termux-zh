@@ -1,0 +1,88 @@
+# 中文命令 → 英文命令
+# 本文件由脚本自动生成，请勿手动修改
+
+## 脚本型命令
+[32mnpm更新[0m [33m->[0m [32mnpm update[0m
+[32mnpx跑[0m [33m->[0m [32mnpx[0m
+[32m下载[0m [33m->[0m [32mcurl -LO[0m
+[32m全局装[0m [33m->[0m [32mnpm install -g[0m
+[32m内存[0m [33m->[0m [32mfree[0m
+[32m分支[0m [33m->[0m [32mgit branch[0m
+[32m切分支[0m [33m->[0m [32mgit checkout[0m
+[32m列出[0m [33m->[0m [32mls[0m
+[32m删包[0m [33m->[0m [32mpkg uninstall[0m
+[32m删除[0m [33m->[0m [32mrm[0m
+[32m前几行[0m [33m->[0m [32mhead[0m
+[32m前台[0m [33m->[0m [32mfg[0m
+[32m升模块[0m [33m->[0m [32mpip install -U[0m
+[32m升级[0m [33m->[0m [32mpkg upgrade[0m
+[32m占用[0m [33m->[0m [32mdu -h --max-depth=1[0m
+[32m卸模块[0m [33m->[0m [32mpip uninstall[0m
+[32m压缩[0m [33m->[0m [32mzip[0m
+[32m去空行[0m [33m->[0m [32mgrep -v ^$[0m
+[32m去重[0m [33m->[0m [32muniq[0m
+[32m合并行[0m [33m->[0m [32mpaste -sd[0m
+[32m同步[0m [33m->[0m [32mrsync[0m
+[32m后几行[0m [33m->[0m [32mtail[0m
+[32m后台[0m [33m->[0m [32mbg[0m
+[32m启动[0m [33m->[0m [32mam[0m
+[32m命令信息[0m [33m->[0m [32mtype[0m
+[32m在哪[0m [33m->[0m [32mwhich[0m
+[32m复制[0m [33m->[0m [32mcp[0m
+[32m大小[0m [33m->[0m [32mdu -sh[0m
+[32m字数[0m [33m->[0m [32mwc -w[0m
+[32m字节数[0m [33m->[0m [32mwc -c[0m
+[32m对比[0m [33m->[0m [32mdiff -u[0m
+[32m帮助[0m [33m->[0m [32m# END_OF_HELP[0m
+[32m建虚拟[0m [33m->[0m [32mpython -m venv[0m
+[32m强杀[0m [33m->[0m [32mkill -9[0m
+[32m当前位置[0m [33m->[0m [32mpwd[0m
+[32m当前壳[0m [33m->[0m [32mecho $SHELL[0m
+[32m截取[0m [33m->[0m [32mcut[0m
+[32m打包[0m [33m->[0m [32mtar[0m
+[32m执行[0m [33m->[0m [32mbash "$SCRIPT"[0m
+[32m找文件[0m [33m->[0m [32mfind[0m
+[32m拉代码[0m [33m->[0m [32mgit clone[0m
+[32m拉取[0m [33m->[0m [32mgit pull[0m
+[32m按列[0m [33m->[0m [32mawk {print \$1}[0m
+[32m排序[0m [33m->[0m [32msort[0m
+[32m推送[0m [33m->[0m [32mgit push[0m
+[32m提交[0m [33m->[0m [32mgit commit[0m
+[32m搜包[0m [33m->[0m [32mpkg search[0m
+[32m改属主[0m [33m->[0m [32mchown[0m
+[32m改权限[0m [33m->[0m [32mchmod[0m
+[32m文件类型[0m [33m->[0m [32mfile[0m
+[32m新建文件[0m [33m->[0m [32mtouch[0m
+[32m新建目录[0m [33m->[0m [32mmkdir[0m
+[32m日志[0m [33m->[0m [32mlogcat[0m
+[32m是否相同[0m [33m->[0m [32mcmp -s[0m
+[32m更新[0m [33m->[0m [32mpkg update[0m
+[32m替换[0m [33m->[0m [32msed[0m
+[32m服务[0m [33m->[0m [32mservice[0m
+[32m查找[0m [33m->[0m [32mgrep[0m
+[32m查模块[0m [33m->[0m [32mpip show[0m
+[32m查看[0m [33m->[0m [32mcat[0m
+[32m检验[0m [33m->[0m [32msha256sum[0m
+[32m测试连接[0m [33m->[0m [32mping[0m
+[32m清缓存[0m [33m->[0m [32mpkg clean[0m
+[32m状态[0m [33m->[0m [32mgit status[0m
+[32m环境[0m [33m->[0m [32menv[0m
+[32m磁盘[0m [33m->[0m [32mdf -h[0m
+[32m移动[0m [33m->[0m [32mmv[0m
+[32m端口[0m [33m->[0m [32mss[0m
+[32m系统[0m [33m->[0m [32muname -a[0m
+[32m结束进程[0m [33m->[0m [32mkill[0m
+[32m行数[0m [33m->[0m [32mwc -l[0m
+[32m装npm包[0m [33m->[0m [32mnpm install[0m
+[32m装包[0m [33m->[0m [32mpkg install[0m
+[32m装模块[0m [33m->[0m [32mpip install[0m
+[32m解压[0m [33m->[0m [32munzip[0m
+[32m记录[0m [33m->[0m [32mgit log --oneline[0m
+[32m请求[0m [33m->[0m [32mcurl[0m
+[32m跑npm[0m [33m->[0m [32mnpm run[0m
+[32m跑脚本[0m [33m->[0m [32mpython[0m
+[32m跟随[0m [33m->[0m [32mtail -f[0m
+[32m进程列表[0m [33m->[0m [32mps[0m
+[32m进虚拟[0m [33m->[0m [32msource venv/bin/activate[0m
+[32m退出[0m [33m->[0m [32mexit[0m
+[32m重载配置[0m [33m->[0m [32msource /data/data/com.termux/files/home/.bashrc[0m
